@@ -7,6 +7,8 @@
 //
 import Foundation
 import Unbox
+import CryptoSwift
+
 
 class ViewModel {
     
@@ -55,27 +57,31 @@ extension ViewModel {
     func profileTitleFor(row: Int) -> String {
         
         switch row {
-        case 0:
-            return currentUser?.username ?? ""
         case 1:
-            return currentUser?.email ?? ""
+            return currentUser?.username ?? ""
         case 2:
-            return currentUser?.street ?? ""
+            return currentUser?.email ?? ""
         case 3:
-            return currentUser?.city ?? ""
+            return currentUser?.street ?? ""
         case 4:
-            return currentUser?.zipcode ?? ""
+            return currentUser?.city ?? ""
         case 5:
-            return currentUser?.phone ?? ""
+            return currentUser?.zipcode ?? ""
         case 6:
-            return currentUser?.website ?? ""
+            return currentUser?.phone ?? ""
         case 7:
-            return currentUser?.company ?? ""
+            return currentUser?.website ?? ""
         case 8:
+            return currentUser?.company ?? ""
+        case 9:
             return currentUser?.about ?? ""
         default:
             return ""
         }
+    }
+    
+    func profileAvatarFor(user: User) -> URL? {
+        return URL(string: "https://www.gravatar.com/avatar/" + user.email.md5())
     }
 
 }

@@ -11,6 +11,7 @@ import UIKit
 class UserTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var avatar: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,8 +25,20 @@ class UserTableViewCell: UITableViewCell {
 
 extension UserTableViewCell {
     
-    func configure(title: String) {
+    func configureTitle(_ title: String) {
         self.title.text = title
+    }
+    
+    func configureAvatar(url: URL?) {
+        guard let avatarUrl = url else {return}
+        
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: avatarUrl)
+            DispatchQueue.main.async {
+                self.avatar.image = UIImage(data: data!)
+            }
+        }
+        
     }
     
 }

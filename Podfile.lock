@@ -1,12 +1,15 @@
 PODS:
+  - CryptoSwift (0.6.6)
   - Unbox (2.3.0)
 
 DEPENDENCIES:
+  - CryptoSwift
   - Unbox
 
 SPEC CHECKSUMS:
+  CryptoSwift: 88592381b73f36e192124539390a7c9bacda76af
   Unbox: 5ba1966ebe99b5d568d432626323331eedd33458
 
-PODFILE CHECKSUM: af1763469bf1259f9a0bfe4681deaf568a1c4f1d
+PODFILE CHECKSUM: c3c4bee817e5eee262f1baa9eb2e3fef56648f68
 
 COCOAPODS: 1.2.0

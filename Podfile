@@ -3,6 +3,8 @@
 
 target 'AndersenTest' do
   pod 'Unbox'
+  pod 'CryptoSwift'
+  
   use_frameworks!
 
   # Pods for AndersenTest

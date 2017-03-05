@@ -40,7 +40,7 @@ extension UserViewController {
     
     fileprivate func setTitle() {
         guard let user = viewModel.currentUser else {return}
-        navigationController?.navigationItem.title = viewModel.userNameFor(user: user)
+        title = viewModel.userNameFor(user: user)
     }
     
 }
@@ -56,15 +56,16 @@ extension UserViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kUserCellIdentifier, for: indexPath as IndexPath) as! UserTableViewCell
-        cell.configure(title: viewModel.profileTitleFor(row: indexPath.row))
+        switch indexPath.row {
+        case 0:
+            cell.configureAvatar(url: viewModel.profileAvatarFor(user: viewModel.users[indexPath.row]))
+        default:
+            cell.configureTitle(viewModel.profileTitleFor(row: indexPath.row))
+        }
         return cell
     }
     
 }
 
-extension UserViewController: UITableViewDelegate {
-    
-    
-}
 
 

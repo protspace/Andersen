@@ -11,12 +11,15 @@ import Unbox
 class ViewModel {
     
     var users = [User]()
-    
+    var currentUser: User? = nil
+
+    let numberOfSections = 1
+    let numberOfRows = 10
 }
 
 extension ViewModel {
     
-    func getUsers() {
+    func loadUsers() {
         
         if let data = loadJson(fileName: "users") {
             do {
@@ -37,4 +40,42 @@ extension ViewModel {
         
     }
     
+}
+
+extension ViewModel {
+    
+    func userNameFor(user: User) -> String {
+        return user.username
+    }
+    
+    func companyNameFor(user: User) -> String {
+        return user.company
+    }
+    
+    func profileTitleFor(row: Int) -> String {
+        
+        switch row {
+        case 0:
+            return currentUser?.username ?? ""
+        case 1:
+            return currentUser?.email ?? ""
+        case 2:
+            return currentUser?.street ?? ""
+        case 3:
+            return currentUser?.city ?? ""
+        case 4:
+            return currentUser?.zipcode ?? ""
+        case 5:
+            return currentUser?.phone ?? ""
+        case 6:
+            return currentUser?.website ?? ""
+        case 7:
+            return currentUser?.company ?? ""
+        case 8:
+            return currentUser?.about ?? ""
+        default:
+            return ""
+        }
+    }
+
 }

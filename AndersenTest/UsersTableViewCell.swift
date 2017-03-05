@@ -14,6 +14,7 @@ import UIKit
 
 class UsersTableViewCell: UITableViewCell {
 
+
     @IBOutlet var name: UILabel!
     @IBOutlet var company: UILabel!
 
@@ -21,10 +22,15 @@ class UsersTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    
-    func configure(user: User) {
-        self.name.text = user.name
-        self.company.text = user.company
-    }
 
+}
+
+
+extension UsersTableViewCell {
+    
+    func configure(userNamename: String?, companyName: String?) {
+        self.name.text = userNamename ?? ""
+        self.company.text = companyName ?? ""
+    }
+    
 }

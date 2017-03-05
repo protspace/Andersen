@@ -47,7 +47,7 @@ extension ViewModel {
 extension ViewModel {
     
     func userNameFor(user: User) -> String {
-        return user.username
+        return user.name
     }
     
     func companyNameFor(user: User) -> String {
@@ -58,7 +58,7 @@ extension ViewModel {
         
         switch row {
         case 1:
-            return currentUser?.username ?? ""
+            return currentUser?.name ?? ""
         case 2:
             return currentUser?.email ?? ""
         case 3:
